@@ -29,10 +29,10 @@ int main()
         return -2;
     }
 
-    double a = 1, S = a;
+    double a = x, S = a;
 
     for (int n = 0; n <= N; ++n) {
-        double q = x*x/(n+1);
+        double q = x*log(5)/(n+1);
         a *= q;
         S += a;
     }
