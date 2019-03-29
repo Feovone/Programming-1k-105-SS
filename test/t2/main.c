@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+<<<<<<< HEAD
 #include <math.h>
+=======
+#include <math.h>
+>>>>>>> deb2ecb4e1795b31562556ea1cf13b2bc7afb6b8
 double f1(double);
 double f2(double, double);
 int main()
@@ -11,7 +15,11 @@ int main()
 
     printf("Press you choice:\n");
     printf("****************\n");
+<<<<<<< HEAD
     printf("Press 1 to solve your problem:\n");
+=======
+    printf("Press 1 to solve your problem:\n");
+>>>>>>> deb2ecb4e1795b31562556ea1cf13b2bc7afb6b8
     printf("Press 2 to solve your second problem:\n");
     printf("****************\n");
     printf("Other EXIT\n");
@@ -34,7 +42,11 @@ int main()
     double a = 1/x, S = 0;
 
     for (int n = 0; n <= N; ++n) {
+<<<<<<< HEAD
         double q = pow(x, 2)/(n+1);
+=======
+        double q = pow(x, 2)/(n+1);
+>>>>>>> deb2ecb4e1795b31562556ea1cf13b2bc7afb6b8
         S += a;
         a *= q;
 
@@ -46,6 +58,7 @@ int main()
     double eps = fabs(y-S)/fabs(S)*100;
     printf("e=%.2f%%\n", eps);
     return 0;
+<<<<<<< HEAD
     break;
 
         case 2:
@@ -55,6 +68,17 @@ break;
     }
 }
 
+=======
+    break;
+
+        case 2:
+second();
+break;
+
+    }
+}
+
+>>>>>>> deb2ecb4e1795b31562556ea1cf13b2bc7afb6b8
 int second()
 {
     double a = -3, b = 5, h = 0.1;
@@ -111,4 +135,8 @@ double f1(double x) {
 
 double f2(double x, double y) {
     return pow(x*y,1.0/3);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> deb2ecb4e1795b31562556ea1cf13b2bc7afb6b8

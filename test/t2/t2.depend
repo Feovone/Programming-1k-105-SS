@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # depslib dependency file v1.0
 1553859722 source:c:\users\1810528\programming-1k-105-ss\test\t2\main.c
 	<stdio.h>
@@ -9,3 +10,11 @@
 	<stdlib.h>
 	<math.h>
 
+=======
+# depslib dependency file v1.0
+1553859722 source:c:\users\1810528\programming-1k-105-ss\test\t2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+>>>>>>> deb2ecb4e1795b31562556ea1cf13b2bc7afb6b8
