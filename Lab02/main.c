@@ -63,7 +63,7 @@ int second()
     printf("x:\t");
     for (double x = a; x <= b; x += h) {
         char c = x + h < b ? '\t' : '\n';
-        printf("%.3f%c", x, c);
+        printf("%.3f%c", f1(x), c);
     }
 
     printf("y:\t");
@@ -99,13 +99,13 @@ int second()
 double f1(double x) {
     if (x <= 1.0) {
         return 3-fabs(x-pow(3-x,1.0/3));
-    } else {
+    }
         if (x > 1 && x <= 4) {
             return pow(x, 1.0/3);
-        } else {
-            return pow(2-x,1.0/3);
         }
-    }
+        if (x>4){
+            return pow(2+x,1.0/3);
+        }
 }
 
 double f2(double x, double y) {

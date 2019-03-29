@@ -4,5 +4,6 @@
 		<Project filename="Lab02/Lab02-Demo.cbp" />
 		<Project filename="lab01/lab1/lab1.cbp" />
 		<Project filename="lab3/lab3.cbp" />
+		<Project filename="classroom/classroom1/classroom1.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
