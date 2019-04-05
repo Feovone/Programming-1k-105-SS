@@ -7,7 +7,6 @@ char menu() {
     printf("What do you want to do?\n");
     printf("________________________\n");
     printf("[1] Complete the first task \n");
-    printf("[2] Complete the second task \n");
     printf("[Q] Quit\n");
     printf("***********************\n");
     printf("Your choice: ");
@@ -21,9 +20,7 @@ char ans;
 if (ans == '1') {
      function1();
 }
-if (ans == '2') {
-     function2();
-    }
+
 }}
 int function1()
 {
@@ -76,21 +73,4 @@ for (int p=0;p<sz;p++){
 //*********************
 //*********************
 //*********************
-int function2(){
-    printf("Entered size ");
-    int a=1;
-    scanf("%d",&a);
-    int b=a;
-    int mat[a][b];
-    for(int i=1;i<=a;i++){
-        printf("\n");
-    for(int j=1;j<=b;j++){
-    if (i==j){
-        mat[i][j]=1;
-    }
-    if (i!=j){
-        mat[i][j]=0;
-    }
-    printf("%d",mat[i][j]);
-}}
-}
+
