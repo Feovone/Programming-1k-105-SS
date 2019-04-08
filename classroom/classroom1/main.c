@@ -14,6 +14,9 @@ char menu() {
     printf("[1] Tochka meshdy 2 krugov \n");
     printf("[2] Naimenshe chislo s 3 \n");
     printf("[3] Naibilshe cratne 2 chisel \n");
+    printf("[5] Domino \n");
+    printf("[6] Triangle Vid \n");
+    printf("[7] Triangle Rasto \n");
     printf("[C] Clear Console \n");
     printf("[Q] Quit\n");
     printf("***********************\n");
@@ -36,6 +39,15 @@ if (ans == '2') {
     }
 if (ans == '3') {
     task3();
+    }
+if (ans == '5') {
+    task5();
+    }
+if (ans == '6') {
+    task6();
+    }
+if (ans == '7') {
+    task7();
     }
 }}
 //*******************************************
@@ -128,4 +140,99 @@ printf("Enter x and y \n");
            }
 
     }
+    }
+//*******************************************
+//*******************************************
+//*******************************************
+//*******************************************
+//*******************************************
+task5(){
+    int i,j,k,l;
+    printf("Enter nominal 1 kosti ");
+    scanf("%d%d",&i,&j);
+    printf("Enter nominal 2 kosti ");
+    scanf("%d%d",&k,&l);
+    if(i>6||j>6||k>6||l>6){
+        printf("ERROR NUmber\n");
+        return -1;
+    }
+    printf("%d_%d %d_%d\n",i,j,k,l);
+    if((i==k||i==l)||(j==k||j==l)){
+        if(i==j||k==l){
+            printf("Mi moshem poloshit tolko vertikalno");
+            return -2;
+        }
+        printf("Moshemo poloshit gorisontalno");
+        return 0;
+    }
+    printf("Ne moshem :(");
+}
+//*******************************************
+//*******************************************
+//*******************************************
+//*******************************************
+//*******************************************
+//*******************************************
+task6(){
+    double a,b,c;
+    printf("Enter 3 storoni:\n");
+    scanf("%lf %lf %lf",&a , &b, &c);
+
+    if(a==b && b==c){
+        printf("TRIANGLE RIVNOSTORONIQ\n");
+        return 0;
+    }
+    if(a==b || b==c){
+        printf("TRIANGLE RIVNOBEDRENIQ\n");
+        return 0;
+    }
+    if((a * a + b * b == c * c) || (a * a + c * c == b * b) || (c * c + b * b == a * a)){
+        printf("TRIANGLE PRIAMOQ\n");
+        return 0;
+    }
+    printf("Eto prosto TRIANGLE\n");
+}
+
+task7(){
+    struct dat{
+    double x;
+    double y;
+    double d1;
+    double d2;
+    double d3;
+    };
+    struct dat a;
+    printf("Enter x,y A point:\n");
+    scanf("%lf %lf",&a.x , &a.y);
+    struct dat b;
+    printf("Enter x,y B point:\n");
+    scanf("%lf %lf",&b.x , &b.y);
+    struct dat c;
+    printf("Enter x,y C point:\n");
+    scanf("%lf %lf",&c.x , &c.y);
+    struct dat x;
+    printf("Enter x,y X point:\n");
+    scanf("%lf %lf",&x.x , &x.y);
+    a.d1=pow(pow(b.x-a.x,2.0)+pow(b.y-a.y,2.0),1.0/2);
+    a.d2=pow(pow(c.x-a.x,2.0)+pow(c.y-a.y,2.0),1.0/2);
+    a.d3=pow(pow(x.x-a.x,2.0)+pow(x.y-a.y,2.0),1.0/2);
+    if(a.d3>a.d1||a.d3>a.d1){
+        printf("Toshka za Treygolnikom");
+        return 0;
+    }
+    b.d1=pow(pow(a.x-b.x,2.0)+pow(a.y-b.y,2.0),1.0/2);
+    b.d2=pow(pow(c.x-b.x,2.0)+pow(c.y-b.y,2.0),1.0/2);
+    b.d3=pow(pow(x.x-b.x,2.0)+pow(x.y-b.y,2.0),1.0/2);
+    if(b.d3>b.d1||b.d3>b.d1){
+        printf("Toshka za Treygolnikom");
+        return 0;
+    }
+    c.d1=pow(pow(a.x-c.x,2.0)+pow(a.y-c.y,2.0),1.0/2);
+    c.d2=pow(pow(b.x-c.x,2.0)+pow(b.y-c.y,2.0),1.0/2);
+    c.d3=pow(pow(x.x-c.x,2.0)+pow(x.y-c.y,2.0),1.0/2);
+    if(c.d3>c.d1||c.d3>c.d1){
+        printf("Toshka za Treygolnikom");
+        return 0;
+    }
+    printf("Toshka v Treygolnike");
     }

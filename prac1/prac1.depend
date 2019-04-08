@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1554464779 source:c:\users\1810528\desktop\programming-1k-105-ss-master\prac1\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1554567056 source:d:\work\programming-1k-105-ss\prac1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
