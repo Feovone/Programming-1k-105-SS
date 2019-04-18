@@ -7,5 +7,7 @@
 		<Project filename="classroom/classroom1/classroom1.cbp" />
 		<Project filename="lab3.2/lab3.2.cbp" />
 		<Project filename="prac1/prac1.cbp" />
+		<Project filename="lab4/lab4.cbp" />
+		<Project filename="prac2/prac2.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
