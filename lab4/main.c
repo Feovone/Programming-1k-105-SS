@@ -2,42 +2,30 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
-typedef float (*uf)(float,float);
 
 
-char DecToBin( int n )
- {
-char i;
-int j;
-int res[10];
-if ( n >= 2 )
+
+int main ()
 {
-DecToBin( n/2 );
-i++;
-res[i]=n%2;
+    char array[100];
+    for(int j=0;j<100;j++){
+        char c;
+        scanf("%c",&c);
+        if(c=='!'){
+            break;
+        }
+        array[j] = c;
+        printf("%c",array[j]);
 }
 
-while(j<3){
-printf(" /%d",res[j]);
-++j;}
-return(res);
-}
-
-
-
-int main (int argc, char* argv[])
-{
-char array[]="A+2";
 int len=strlen(array);
-char a;
+int a;
 int s=0;
-for(int i=0;len>i;++i)
+for(char i=0;len>i;++i)
 {
-a=DecToBin( array[i]);
-printf(" _%d ",a);
-s+=a;
+        a=array[i];
+        s+=a;
 }
-printf("%d %d ",a,s);
-
+printf(" %d ",s);
 }
 
