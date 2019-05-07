@@ -9,5 +9,7 @@
 		<Project filename="prac1/prac1.cbp" />
 		<Project filename="lab4/lab4.cbp" />
 		<Project filename="prac2/prac2.cbp" />
+		<Project filename="lab5/lab5.cbp" />
+		<Project filename="lab6/lab6.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
