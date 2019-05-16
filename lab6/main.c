@@ -43,12 +43,31 @@ int main()
     memset(&s, 0, sizeof(s));
     char fname[256] = "stud.txt";
     FILE *fp = fopen(fname, "r");
+    FILE *fo = fopen("stud1.bin", "rb+");
+    FILE *ft = fopen("stud1.txt", "r+");
+
     if (!fp) {
         printf("Can't open file %s\n", fname);
         return -1;
+
     }
+    if (!fo) {
+        printf("Can't open file stud1.bin");
+        return -1;
+
+    }
+    if (!ft) {
+        printf("Can't open file stud1.txt");
+        return -1;
+
+    }
+
 
     fscan(fp, &s);
     print(&s);
+    fwrite(&s, sizeof(int), 1, fo);
+    fread(&s,sizeof(int), 1, ft);
+    fwrite(&s, sizeof(int), 1, ft);
+
     fclose(fp);
 }
