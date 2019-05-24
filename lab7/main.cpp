@@ -113,7 +113,7 @@ int main(int argc, char* argv[])
             ofstream os(fname.c_str());
             ifstream is(fname.c_str());
             string sort(argv[3]);
-            int year=1990;
+
             Person p1;
             Person p2;
             while(is!='\0'){

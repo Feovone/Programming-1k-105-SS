@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 {
 char ans;
 while((ans = toupper(menu())) != 'Q') {
-if (ans == 'Ñ') {
+if (ans == 'C') {
      clrscr();
 }
 if (ans == '1') {
