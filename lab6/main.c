@@ -9,39 +9,29 @@
 #define KURS 3
 #define LEN 50
 char menu();
-double f1(double x);
-
-struct student{
-        int id;
-        char name[NAME];
-        char tel[TEL];
-        char kurs[KURS];
-        int math;
-        int phych;
-};
-
-struct student* fscan(FILE* fp, struct student* s) {
-    if (!fp) {
-        return NULL;
-    }
-    char buffer[256] = {0};
-    fscanf(fp, "%[^\n]s", buffer);
-    sscanf(buffer, "%d,%s,%s,%s,math:%d,phych:%d",
-               &(s->id), s->name, s->tel, s->kurs,&(s->math), &(s->phych));
-   // fscanf(fp, "%d,%s,%s,%s,math:%d,phych:%d;\n",
-   //            &(s->id), s->name, s->tel, s->kurs,&(s->math), &(s->phych));
-    return s;
-};
-
-void print(const struct student* s) {
-    printf("%d,%s,%s,%s,math:%d,phych:%d\n",
-            s->id, s->name, s->tel, s->kurs,s->math, s->phych);
+double f1();
+//for 2 task
+void clrscr()
+{
+    system("@cls||clear");
 }
+typedef struct _tagStudent{
+    int id;
+    int kurs;
+    int math;
+    int phych;
+    int ukr;
+} STUDENT, *PSTUDENT;
+
+PSTUDENT read(FILE* fp,PSTUDENT ps);
+void step(STUDENT student);
+
 
 int main()
 {
+  //  double f1(double x);
     char answer;
-    while((answer = menu()) != '4') {
+    while((answer = toupper(menu())) != 'Q') {
         if(answer == '1'){
             FILE *f;
             if((f = fopen("task1.txt", "w"))== NULL){
@@ -50,15 +40,15 @@ int main()
             }
             double a = 2, b = 5, h = 0.1;
 
-            fprintf(f,"\t\t\t\t\t\t *****TABULATION*****\n");
+            fprintf(f,"\t\t\t\t\t\t *****TABULATION*****");
             fprintf(f,"\nIntegral [%.0f,%.0f];\n",a,b);
-            fprintf(f,"x:\t");
+            fprintf(f,"x:\t\t");
             for (double x = a; x <= b; x += h) {
                 char c = x + h < b ? '\t' : '\n';
                 fprintf(f,"%.3f%c", x, c);
             }
 
-            fprintf(f,"y:\t");
+            fprintf(f,"y:\t\t");
             for (double x = a; x <= b; x += h) {
                 char c = x + h < b ? '\t' : '\n';
                 fprintf(f,"%.3f%c", f1(x), c);
@@ -85,43 +75,37 @@ int main()
             for(double i = a; i <= b; i+=h){
                 intres += h*f1(i);
             }
-            fprintf(f,"\n sum:  %.5f;",a,b,intres);
+            fprintf(f,"\nSum:  %.5f;",a,b,intres);
         fclose(f);
+        printf("Check task1.txt\n");
     }
     if(answer == '2'){
-    struct student s;
-    memset(&s, 0, sizeof(s));
-    char fname[256] = "stud.txt";
-    FILE *fp = fopen(fname, "r");
-    FILE *fo = fopen("stud1.bin", "rb+");
-    FILE *ft = fopen("stud1.txt", "r+");
-
+    char file_name[256] = "stud.txt";
+    FILE* fp = fopen(file_name, "r+");
     if (!fp) {
-        printf("Can't open file %s\n", fname);
+        printf("Cannot open file %s\n", file_name);
         return -1;
-
-    }
-    if (!fo) {
-        printf("Can't open file stud1.bin");
-        return -1;
-
-    }
-    if (!ft) {
-        printf("Can't open file stud1.txt");
-        return -1;
-
     }
 
-
-    fscan(fp, &s);
-    print(&s);
-    fwrite(&s, sizeof(int), 1, fo);
-    fread(&s,sizeof(int), 1, ft);
-    fwrite(&s, sizeof(int), 1, ft);
+    STUDENT student;
+    memset(&student, 0, sizeof(student));
+    int i=0;
+    while(ID>i){
+    memset(&student, 0, sizeof(student));
+    read(fp, &student);
+    step(student);
+    i++;
+    }
 
     fclose(fp);
-}return 0;}
 
+    return 0;
+}if(answer == 'C'){
+   clrscr(); }}}
+
+
+
+//1 task
 double f1(double x) {
     if (x <= 1.0) {
         return 3-fabs(x-pow(3-x,1.0/3));
@@ -133,15 +117,49 @@ double f1(double x) {
             return pow(2+x,1.0/3);
         }
     }
+
+//2 task
+void print_student(STUDENT ps) {
+    printf("{Student with id=%d, kurs=%d, math=%d, phych=%d, ukrainian=%d have salary. Avarage marks=%d}\n",
+          ps.id,
+          ps.kurs,
+          ps.math,
+          ps.phych,
+          ps.ukr,
+         ((ps.math+ps.phych+ps.ukr)/3)
+          );
 }
+
+PSTUDENT read(FILE* fp,PSTUDENT ps) {
+    char str[256] = {0};
+    char c;
+    fscanf(fp, "%[^\n]s", str);
+    fscanf(fp, "%c", &c);
+    // printf("====%s====\n", str); //CHECK WORK
+    sscanf(str, "%d,%d,%d,%d,%d\n",
+           &(ps->id),
+           &(ps->kurs),
+           &(ps->math),
+           &(ps->phych),
+           &(ps->ukr)
+           );
+
+   return ps;
+}
+
+step(STUDENT student){
+if((student.math+student.phych+student.ukr)/3>=75){
+    print_student(student);
+}else if(student.id!=0){printf("Student with id=%d did't have a salary, because avarage marks=%d\n",student.id, ((student.math+student.phych+student.ukr)/3));
+}}
+
 char menu() {
     char choo;
     printf("------------------------\n");
     printf("What do you want to do?\n");
     printf("------------------------\n");
     printf("[1]Tabulation\n");
-    printf("[2]LOCALIZATIon\n");
-    printf("[3]INTEGRAL\n");
+    printf("[2]Student's salary\n");
     printf("[C]CLEAR CON\n");
     printf("[Q]Exit\n");
     while((choo = getchar()) == '\n');

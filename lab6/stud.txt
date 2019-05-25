@@ -1,3 +1,5 @@
-1,ุฮย,0001,001,math:70,phych:90;
-2,ัสฬ,0002,002,math:60,phych:30;
-3,ฯฮย,0003,003,math:60,phych:100;
+//write in format (id,kurs,math,phych,ukrainian) example (10,6,80,65,80)
+1,2,70,65,80
+2,2,80,88,90
+3,5,70,90,80
+5,2,90,80,60
