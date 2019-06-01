@@ -61,7 +61,7 @@ int main(int argc, char* argv[])
 {
 
      if (argc <= 1) {
-        cout << "Usage " << argv[0] << " <file name> <arg> \n[1]Status lib \n[2]Add new book \n[3]Create test lib \n[4]Sort";
+        cout << "Usage " << argv[0] << " <file name> <arg> \n[1]Status lib \n[2]Add new book \n[3]Create test lib \n[4]delete book";
         cout << "\n[R]README " ;
         return -1;
      }
@@ -69,23 +69,23 @@ int main(int argc, char* argv[])
      string fname(argv[1]);
      string param(argv[2]);
 
-     if (param == "1") {
-        ifstream is(fname.c_str());
-        if (!is) {
-            cout << "File " << fname << " doesn't exist" << endl;
-            return -1;
+        if (param == "1") {
+            ifstream is(fname.c_str());
+            if (!is) {
+                cout << "File " << fname << " doesn't exist" << endl;
+                return -1;
+            }
+
+            while(!is.eof()) {
+                Person p1;
+                is >> p1;
+                cout << p1 << endl;
+            }
+            is.close();
+
         }
-
-        while(!is.eof()) {
-            Person p1;
-            is >> p1;
-            cout << p1 << endl;
-        }
-
-        is.close();
-
-     }else
-     if(param == "2") {
+        else
+        if(param == "2") {
             cout << "Enter your book in format '" << argv[0] <<" "<< argv[1]<<" 2 YEAR;NAME BOOK;AUTHOR'\n";
             string book(argv[3]);
             ofstream out;
@@ -94,7 +94,8 @@ int main(int argc, char* argv[])
             out << endl;
             out << book;
             out.close();
-      }else {
+        }
+        else {
          if (param == "3") {
             Person p1(1999, "LICHKING", "John Doe");
             Person p2(2001,"TRENT", "Marry King");
@@ -110,19 +111,42 @@ int main(int argc, char* argv[])
          }
          else {
          if (param == "4") {
-            ofstream os(fname.c_str());
-            ifstream is(fname.c_str());
-            string sort(argv[3]);
+            ifstream file_in;
+            file_in.open("stud.txt");
+            if(!file_in){
+                cerr << "Error file not found:" << "stud.txt" << endl;
+                return -1;
+                }
+            int i_number_line_now = 0; //счётчик строк
+            string line; //для хранения строки
+            string line_file_text; //для хранения текста файла
+            int line_file_delete;
+            cin >> line_file_delete;
+            while(getline(file_in,line)){
+            i_number_line_now++;
 
-            Person p1;
-            Person p2;
-            while(is!='\0'){
-            is >> p1;
-            is >> p2;
-            cout << p1 << endl;
-            ++year;
-        }}
-        else {
+            if(!(i_number_line_now == line_file_delete)){
+                line_file_text.insert(line_file_text.size(),line); /*добавить строку*/
+                    /*добавить перенос на следующую строку*/
+               if(!(i_number_line_now-1 == line_file_delete)){
+                    line_file_text.insert(line_file_text.size(),"\n");
+               }
+            }
+            }
+
+            file_in.close();
+            ofstream file_out;
+            file_out.open ("stud.txt",ios::trunc | ios::binary);
+            file_out.write(line_file_text.c_str(), line_file_text.size());
+            file_out.clear();
+            }
+         else {
+         if (param == "5") {
+
+
+        }
+
+         else {
          if (param == "R") {
            cout << "In ADD and SORT use 3 arg or program crash!!";
         }
