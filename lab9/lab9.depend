@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1559468176 source:d:\work\programming-1k-105-ss\lab9\menu.cpp
+	<iostream>
+
+1559477129 source:d:\work\programming-1k-105-ss\lab9\main.cpp
+	<iostream>
+	<string>
+	<algorithm>
+	<ctype.h>
+	<cmath>
+	"menu.cpp"
+
+1559476574 d:\work\programming-1k-105-ss\lab9\menu.cpp
+	<iostream>
+
