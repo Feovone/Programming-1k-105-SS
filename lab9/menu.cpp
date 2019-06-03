@@ -7,8 +7,11 @@ int mainmenu(){
     << "[2] CARS in car's park" << endl
     << "[3] Test set of cars " << endl
     << "[4] Move car in the CITY" << endl
-    << "[5] Intersect" << endl
-    << "[6] Test dots" << endl
+    << "[5] CARS in CITY" << endl
+    << "[6] Move car in the PARK" << endl
+    << "[7] Sorting cars in the park by ID " << endl
+    << "[8] Sorting cars in the park by number" << endl
+    << "[9] Delete car" << endl
     << "Your choice: ";
     short choice;
     cin >> choice;
